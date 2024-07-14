@@ -8,12 +8,31 @@
   "password": "პაროლი"
 }
 ```
+
 მომხარებლის ავტორიზაცია --> http://localhost:3000/api/auth/login
 ```json
 {
   "email": "მეილი",
   "password": "პაროლი"
 }
+```
+
+როგორ გავაკეთო ეს
+```js
+const axios = require('axios');
+
+const loginData = {
+    email: "tester2@gmail.com",
+    password: "tester"
+};
+
+axios.post('http://localhost:3000/api/auth/login', loginData)
+    .then(response => {
+        console.log('Response data:', response.data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 ```
 
 

@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const authRouter = require('./routes/authRoute')
+const profileRouter = require('./routes/profileRoute')
 const cors = require('cors')
 const app = express()
 
@@ -8,6 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth', authRouter);
+app.use('/api/profile', profileRouter);
 
 mongoose
   .connect('mongodb://127.0.0.1:27017/renown')

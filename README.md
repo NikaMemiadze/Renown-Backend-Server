@@ -25,7 +25,7 @@ axios.post('http://localhost:3000/api/auth/signup', signupData)
     })
     .catch(error => {
         console.error('Error:', error);
-    });
+});
 ```
 
 მომხარებლის ავტორიზაცია --> http://localhost:3000/api/auth/login
@@ -51,7 +51,7 @@ axios.post('http://localhost:3000/api/auth/login', loginData)
     })
     .catch(error => {
         console.error('Error:', error);
-    });
+});
 ```
 
 

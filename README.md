@@ -102,9 +102,11 @@ axios.delete('http://localhost:3000/api/profile/deleteAccount', config)
 როგორ გავაკეთო ეს ? 
 
 ```js
+const axios = require('axios');
+
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njk0ZjhlMmNjMzdhZmZhYWY5ZWI2ZTkiLCJpYXQiOjE3MjEwMzkwNzQsImV4cCI6MTcyODgxNTA3NH0.f8iqaBNGef6vZ8y2UTcuXbJahIOITS4ZfSgtmcA_BEg';
 
-axios.post('http://your-server-endpoint/changeName', { newName: 'New Name', userId: '6694f8e2cc37affaaf9eb6e9' }, {
+axios.post('http://localhost:3000/api/profile/changeName', { newName: 'New Name', userId: '6694f8e2cc37affaaf9eb6e9' }, {
   headers: {
     'Authorization': `Bearer ${token}`
   }
@@ -116,5 +118,40 @@ axios.post('http://your-server-endpoint/changeName', { newName: 'New Name', user
   console.error('Error:', error.response.data); 
 });
 ```
+
+მეილის შეცვლა --> http://localhost:3000/api/profile/changeEmail
+
+```json
+{
+    "currentPassword": "12345",
+    "newEmail": "testerrr@gmail.com",
+    "userId": "6694f8e2cc37affaaf9eb6e9"
+}
+```
+
+როგორ გავაკეთო ეს ? 
+
+```js
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njk0ZjhlMmNjMzdhZmZhYWY5ZWI2ZTkiLCJpYXQiOjE3MjEwMzkwNzQsImV4cCI6MTcyODgxNTA3NH0.f8iqaBNGef6vZ8y2UTcuXbJahIOITS4ZfSgtmcA_BEg';
+
+axios.post(
+  'http://localhost:3000/api/profile/changeEmail',
+  {
+    newEmail: 'newemail@example.com',
+    currentPassword: 'currentPassword',
+    userId: '6694f8e2cc37affaaf9eb6e9' 
+  },
+  {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  }
+)
+.then(response => {
+  console.log(response.data); 
+})
+.catch(error => {
+  console.error('Error:', error.response.data); 
+});
 
 

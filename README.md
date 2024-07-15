@@ -91,5 +91,30 @@ axios.delete('http://localhost:3000/api/profile/deleteAccount', config)
     console.error('Error:', error);
   });
 ```
+სახელის შეცვლა --> http://localhost:3000/api/profile/changeName
+```json
+{
+    "userId": "6694f8e2cc37affaaf9eb6e9",
+    "newName": "NewName"
+}
+```
+
+როგორ გავაკეთო ეს ? 
+
+```js
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njk0ZjhlMmNjMzdhZmZhYWY5ZWI2ZTkiLCJpYXQiOjE3MjEwMzkwNzQsImV4cCI6MTcyODgxNTA3NH0.f8iqaBNGef6vZ8y2UTcuXbJahIOITS4ZfSgtmcA_BEg';
+
+axios.post('http://your-server-endpoint/changeName', { newName: 'New Name', userId: '6694f8e2cc37affaaf9eb6e9' }, {
+  headers: {
+    'Authorization': `Bearer ${token}`
+  }
+})
+.then(response => {
+  console.log(response.data); 
+})
+.catch(error => {
+  console.error('Error:', error.response.data); 
+});
+```
 
 

@@ -153,5 +153,43 @@ axios.post(
 .catch(error => {
   console.error('Error:', error.response.data); 
 });
+```
+
+პაროლის შეცვლა --> http://localhost:3000/api/profile/changePassword
+
+```json
+{
+    "currentPassword": "12345",
+    "newPassword": "12345678",
+    "userId": "6694f8e2cc37affaaf9eb6e9"
+}
+```
+
+```js
+const axios = require('axios');
+const bcrypt = require('bcryptjs'); 
+
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njk0ZjhlMmNjMzdhZmZhYWY5ZWI2ZTkiLCJpYXQiOjE3MjEwMzkwNzQsImV4cCI6MTcyODgxNTA3NH0.f8iqaBNGef6vZ8y2UTcuXbJahIOITS4ZfSgtmcA_BEg';
+
+axios.post(
+  'http://localhost:3000/api/profile/changePassword',
+  {
+    currentPassword: '12345',
+    newPassword: '12345678',
+    userId: '6694f8e2cc37affaaf9eb6e9'
+  },
+  {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  }
+)
+.then(response => {
+  console.log(response.data); 
+})
+.catch(error => {
+  console.error('Error:', error.response.data); 
+});
+```
 
 

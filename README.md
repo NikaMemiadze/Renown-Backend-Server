@@ -165,6 +165,8 @@ axios.post(
 }
 ```
 
+როგორ გავაკეთო ეს ?
+
 ```js
 const axios = require('axios');
 const bcrypt = require('bcryptjs'); 
